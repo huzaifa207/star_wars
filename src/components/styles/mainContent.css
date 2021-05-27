@@ -1,0 +1,13 @@
+.object-container {
+  text-align: left;
+  padding: 5px 20px;
+  list-style: none;
+  width: 60%;
+  margin: auto;
+}
+
+.total_count {
+  font-size: 22px;
+  font-weight: bold;
+  text-decoration: underline;
+}

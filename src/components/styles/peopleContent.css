@@ -1,0 +1,26 @@
+.people-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.people-object {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.people-button {
+  height: fit-content;
+  background-color: rgb(43, 0, 233);
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px 20px;
+  display: inline-block;
+  border-radius: 10px;
+  align-self: center;
+}
+
+.people-button:hover {
+  background-color: rgb(32, 2, 168);
+  cursor: pointer;
+}

@@ -1,0 +1,26 @@
+.navbar {
+  padding: 5px 40px;
+  border-bottom: 2px solid gray;
+}
+
+.categories_list {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+.categories_list > li > button {
+  background-color: #fff;
+  border: none;
+  font-size: 20px;
+}
+
+.categories_list > li:hover {
+  font-size: 22px;
+  border-bottom: 2px solid rgb(54, 50, 255);
+  cursor: pointer;
+}
+
+.active-category {
+  border-bottom: 5px solid rgb(23, 23, 240);
+}
