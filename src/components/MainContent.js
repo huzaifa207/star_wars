@@ -3,6 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 
 import Loading from "./Loading";
 import PeopleContent from "./PeopleContent";
+import Pagination from "./Pagination";
 
 import "./styles/mainContent.css";
 
@@ -10,21 +11,25 @@ let MainContent = (props) => {
   let category = props.category;
   let isLoading = props.isLoading;
   let objects = props.objects;
+  let page = props.page;
 
-  let [count, setCount] = useState(0);
-  let [next_link, set_next_link] = useState("");
+  const [count, setCount] = useState(0);
+  const [next, setNext] = useState();
+  const [previous, setPrevious] = useState();
 
+  let pages = Math.floor(count / 10) + (count % 10 === 0 ? 0 : 1);
   let fetch_data = () => {
     let handleLoading = props.handleLoading;
     let handleObjects = props.handleObjects;
     handleLoading(true);
-    fetch(`https://swapi.dev/api/${category}/`)
+    fetch(`https://swapi.dev/api/${category}/?page=${page}`)
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
         handleLoading(false);
         setCount(data["count"]);
-        set_next_link(data["next"]);
+        setNext(data["next"]);
+        setPrevious(data["previous"]);
         return handleObjects(data["results"]);
       })
       .catch((error) => console.log(error));
@@ -36,13 +41,13 @@ let MainContent = (props) => {
 
   useEffect(() => {
     fetch_data();
-  }, [category]);
+  }, [category, page]);
 
   let renderable_objects = objects.map((obj) => (
     <PeopleContent key={uuidv4()} obj={obj} />
   ));
   return (
-    <div>
+    <div className="main-container">
       {isLoading ? (
         <Loading />
       ) : (
@@ -51,6 +56,13 @@ let MainContent = (props) => {
             Total {category_name()} : {count}
           </p>
           <ul className="object-container">{renderable_objects}</ul>
+          <Pagination
+            pages={pages}
+            category={category}
+            handlePage={props.handlePage}
+            next={next}
+            previous={previous}
+          />
         </div>
       )}
     </div>

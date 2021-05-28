@@ -1,0 +1,21 @@
+.pagination-button {
+  background-color: rgb(0, 4, 255);
+  color: white;
+  padding: 3px 5px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.pagination-button:hover {
+  cursor: pointer;
+  background-color: rgb(31, 128, 255);
+}
+
+.pagination-button:disabled {
+  background-color: rgb(87, 77, 224);
+  cursor: default;
+}
+
+.pagination {
+  margin: 15px 0px;
+}
