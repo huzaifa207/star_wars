@@ -62,6 +62,7 @@ let MainContent = (props) => {
             handlePage={props.handlePage}
             next={next}
             previous={previous}
+            page={page}
           />
         </div>
       )}

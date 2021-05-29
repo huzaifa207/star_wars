@@ -16,16 +16,19 @@ let Pagination = (props) => {
       key={0}
       className="pagination-button"
       disabled={!props.previous && true}
+      onClick={() => handlePage(props.page - 1)}
     >
       <FontAwesomeIcon icon={faAngleDoubleLeft} />
     </button>
   );
 
-  let i = 1;
-  for (i; i <= pages; i++) {
+  for (let i = 1; i <= pages; i++) {
     buttons.push(
       <button
-        onClick={() => handlePage(i)}
+        onClick={() => {
+          console.log(i);
+          handlePage(i);
+        }}
         key={i}
         className="pagination-button"
       >
@@ -35,7 +38,12 @@ let Pagination = (props) => {
   }
 
   buttons.push(
-    <button key={i} className="pagination-button">
+    <button
+      key={99}
+      className="pagination-button"
+      disabled={!props.next && true}
+      onClick={() => handlePage(props.page + 1)}
+    >
       <FontAwesomeIcon icon={faAngleDoubleRight} />
     </button>
   );
