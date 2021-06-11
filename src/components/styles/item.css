@@ -1,6 +1,7 @@
 .people-container {
   display: flex;
   justify-content: space-between;
+  border-bottom: 1px solid rgb(105, 105, 105);
 }
 
 .people-object {
@@ -10,7 +11,7 @@
 
 .people-button {
   height: fit-content;
-  background-color: rgb(43, 0, 233);
+  background-color: rgb(39, 233, 0);
   color: #fff;
   font-size: 16px;
   font-weight: bold;
@@ -21,6 +22,7 @@
 }
 
 .people-button:hover {
-  background-color: rgb(32, 2, 168);
+  background-color: rgb(50, 175, 0);
+  color: #f2f2f2;
   cursor: pointer;
 }

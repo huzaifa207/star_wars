@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { v4 as uuidv4 } from "uuid";
 
 import Loading from "./Loading";
-import PeopleContent from "./PeopleContent";
+import Item from "./Item";
 import Pagination from "./Pagination";
 
 import "./styles/mainContent.css";
@@ -25,7 +24,6 @@ let MainContent = (props) => {
     fetch(`https://swapi.dev/api/${category}/?page=${page}`)
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         handleLoading(false);
         setCount(data["count"]);
         setNext(data["next"]);
@@ -43,8 +41,8 @@ let MainContent = (props) => {
     fetch_data();
   }, [category, page]);
 
-  let renderable_objects = objects.map((obj) => (
-    <PeopleContent key={uuidv4()} obj={obj} />
+  let renderable_objects = objects.map((obj, index) => (
+    <Item key={(page - 1) * 10 + index} obj={obj} />
   ));
   return (
     <div className="main-container">

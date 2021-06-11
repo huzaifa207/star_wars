@@ -1,6 +1,6 @@
-import "./styles/peopleContent.css";
+import "./styles/item.css";
 
-let PeopleContent = (props) => {
+let Item = (props) => {
   return (
     <li className="people-container">
       <p className="people-object">
@@ -11,4 +11,4 @@ let PeopleContent = (props) => {
   );
 };
 
-export default PeopleContent;
+export default Item;
